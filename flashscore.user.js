@@ -190,6 +190,6 @@ async function start() {
   }
 }
 
-start();
+// start();
 
-// GM_registerMenuCommand ("Запуск", start);
+GM_registerMenuCommand ("FS", start, "w");
