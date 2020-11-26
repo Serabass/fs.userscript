@@ -5,7 +5,7 @@
 // @description  try to take over the world!
 // @author       You
 // @grant        GM_registerMenuCommand
-// @run-at       context-menu
+// // @run-at       context-menu
 // @match        https://www.flashscore.com/*
 // @require      file://M:\dev\_job\fl\flashscore\file.js
 // ==/UserScript==
