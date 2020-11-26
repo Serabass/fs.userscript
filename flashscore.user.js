@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         FlashScore1
+// @name         FlashScore
 // @namespace    http://tampermonkey.net/
 // @version      0.3
 // @description  try to take over the world!
@@ -10,8 +10,7 @@
 // @require      file://M:\dev\_job\fl\flashscore\file.js
 // ==/UserScript==
 
-GM_registerMenuCommand ("Запуск", async function start() {
-  return;
+async function start() {
   const master = {
     email: 'megapopov@yandex.ru',
     password: '25128170',
@@ -25,6 +24,8 @@ GM_registerMenuCommand ("Запуск", async function start() {
       return {email, password};
     });
   
+debugger;
+
   window.confirm = unsafeWindow.confirm = () => true;
   
   function delay(time) {
@@ -150,9 +151,9 @@ GM_registerMenuCommand ("Запуск", async function start() {
     await logout();
   }
 
-  // Master account - collect data
+  // Master - collect data
   {
-    await login(accounts.first.email, accounts.first.password);
+    await login(master.email, master.password);
     await closeModal();
     await delay(2000);  
     await clickOnMyGames();
@@ -161,9 +162,9 @@ GM_registerMenuCommand ("Запуск", async function start() {
     await logout();
   }
 
-  // Second account - put data
-  {
-    await login(accounts.second.email, accounts.second.password);
+  // Slaves - put data
+  for (let slave of slaves) {
+    await login(slave.email, slave.password);
     await closeModal();
     await delay(3000);
     await clickOnAllGames();
@@ -188,4 +189,8 @@ GM_registerMenuCommand ("Запуск", async function start() {
       await delay(500);
     }
   }
-});
+}
+
+start();
+
+// GM_registerMenuCommand ("Запуск", start);
