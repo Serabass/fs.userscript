@@ -10,9 +10,7 @@
 // @require      file://M:\dev\_job\fl\flashscore\file.js
 // ==/UserScript==
 
-GM_registerMenuCommand ("Запуск", start);
-
-(async function start() {
+async function start() {
   return;
   const master = {
     email: 'megapopov@yandex.ru',
@@ -190,4 +188,6 @@ GM_registerMenuCommand ("Запуск", start);
       await delay(500);
     }
   }
-})();
+}
+
+GM_registerMenuCommand ("Запуск", start);
