@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         FlashScore
+// @name         FlashScore1
 // @namespace    http://tampermonkey.net/
 // @version      0.3
 // @description  try to take over the world!
@@ -10,7 +10,7 @@
 // @require      file://M:\dev\_job\fl\flashscore\file.js
 // ==/UserScript==
 
-async function start() {
+GM_registerMenuCommand ("Запуск", async function start() {
   return;
   const master = {
     email: 'megapopov@yandex.ru',
@@ -188,6 +188,4 @@ async function start() {
       await delay(500);
     }
   }
-}
-
-GM_registerMenuCommand ("Запуск", start);
+});
